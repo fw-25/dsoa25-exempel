@@ -4,4 +4,8 @@ public class Bike extends Vehicle {
         super(name, "pedaled");
     }
 
+    @Override
+    public String soundWarning() {
+        return "pling-pling";
+    }
 }

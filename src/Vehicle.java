@@ -10,6 +10,10 @@ public class Vehicle {
         this.type = type;
     }
 
+    public String soundWarning() {
+        return "default sound";
+    }
+
     public String getName() {
         return name;
     }
