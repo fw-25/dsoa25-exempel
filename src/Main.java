@@ -1,6 +1,11 @@
 public class Main {
     public static void main(String[] args) {
 
+
+        Clothing shirt = new Shirt("Gant", 100);
+
+        //Vehicle vehicle = new Vehicle("fordon", "foo");
+
         // Upcasting
         Vehicle car = new Car("Toyota", 5000);
         Vehicle bike = new Bike("Scott");
