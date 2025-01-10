@@ -1,17 +1,9 @@
-public class Car {
-
-    // vi deklarerar String-variabeln name
-    private String name;
+public class Car extends Vehicle {
 
     public Car(String name) {
-        this.name = name;
+        super(name, "motorized");
+        super.setPrice(10000.0);
+
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

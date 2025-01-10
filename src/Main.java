@@ -2,13 +2,15 @@ public class Main {
     public static void main(String[] args) {
 
         Car car = new Car("Toyota");
-        Car otherCar = new Car("Volvo");
+        Bike bike = new Bike("Scott");
 
-        System.out.println("Hello " + car.getName());
-        car.setName("Kia");
-        System.out.println("New name: " + car.getName());
+        car.setName("VW");
 
-        System.out.println("Hello " + otherCar.getName());
+        //car.setPrice(-1000.0);
+
+        System.out.printf("%s kostar %.2f\n", car.getName(), car.getPrice());
+        System.out.printf("%s is %s\n", car.getName(), car.getType());
+        System.out.println(bike.getName() + " is " + bike.getType());
 
     }
 }
