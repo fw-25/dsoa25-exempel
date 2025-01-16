@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -8,27 +9,52 @@ public class Main {
 
     public static void main(String[] args) {
 
+        CCTestingOverload calculator = new CCTestingOverload();
+        System.out.println(calculator.multiply(7, 6));
+
+        Scanner scanner = new Scanner(System.in);
+
         BikeShop shop = new BikeShop();
         shop.addBike(new Bike("Scott", 600));
         shop.addBike(new Bike("Nishiki", 500));
         shop.addBike(new Bike("Insera", 200));
 
-        shop.getBike(0).addFeature("suspension", "hardtail");
-        shop.getBike(0).addFeature("wheelsize", "29 inch");
-        /* i JS ungefär:
-            const features = { suspension: "hardtail", wheelsize: "29 inch" }
-        */
-        //System.out.println(shop.getBike(1).getFeature("suspension"));
-
         System.out.println("Välkommen till BikeShop! Våra cyklar:");
         for (int i = 0; i < shop.getBikeCount(); i++) {
-            System.out.printf("%s %.2f € lagersaldo: %s\n",
-                shop.getBike(i).getName(),
-                shop.getBike(i).getPrice(),
-                shop.getBike(i).getStock()
+            System.out.printf("%d - %s %.2f € lagersaldo: %s\n",
+                    i,
+                    shop.getBike(i).getName(),
+                    shop.getBike(i).getPrice(),
+                    shop.getBike(i).getStock()
             );
+        }
 
-            System.out.println(shop.getBike(i).getFeatures());
+        System.out.print("Vilken cykel vill du köpa? (q för quit) ");
+        String userInput;
+
+        while (true) {
+
+            userInput = scanner.nextLine();
+
+            if (userInput.equalsIgnoreCase("q")) {
+                System.out.println("Tack, välkommen åter!");
+                System.exit(0);
+            }
+
+            try {
+                int bikeIndex = Integer.parseInt(userInput);
+                System.out.printf("Grattis, du äger nu en %s\n",
+                        shop.getBike(bikeIndex).getName()
+                );
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Du måste ge ett heltal!");
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Det finns ingen sådan cykel!");
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+
         }
 
 
