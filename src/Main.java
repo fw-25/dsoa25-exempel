@@ -1,40 +1,50 @@
+import java.util.ArrayList;
+
 public class Main {
+
+    // Komstanter med static final
+    static final String PROGRAM_VERSION = "1.0";
+    static final int DAYS_IN_WEEK = 7;
+
     public static void main(String[] args) {
 
+        BikeShop shop = new BikeShop();
+        shop.addBike(new Bike("Scott", 600));
+        shop.addBike(new Bike("Nishiki", 500));
+        shop.addBike(new Bike("Insera", 200));
 
-        Clothing shirt = new Shirt("Gant", 100);
-
-        //Vehicle vehicle = new Vehicle("fordon", "foo");
-
-        // Upcasting
-        Vehicle car = new Car("Toyota", 5000);
-        Vehicle bike = new Bike("Scott");
-
-        Car car2 = new Car("Fiat");
-        car2.refuel();
-
-        Car car3 = new Car(20000.0);
-
-        Car car4 = new Car("Tesla", "electric");
-
-        Vehicle todaysVehicle;
-        todaysVehicle = car;
-
-        todaysVehicle = bike;
-
-        System.out.println("i dag åker jag " + todaysVehicle.getName());
-
-        //car.setPrice(-1000.0);
-
-        System.out.printf("%s kostar %.2f\n", car.getName(), car.getPrice());
-        System.out.printf("%s is %s\n", car.getName(), car.getType());
-        System.out.println(car.soundWarning());
-
-        System.out.printf("%s kostar %.2f\n", car2.getName(), car2.getPrice());
+        System.out.println("Välkommen till BikeShop! Våra cyklar:");
+        for (int i = 0; i < shop.getBikeCount(); i++) {
+            System.out.printf("%s %.2f € lagersaldo: %s\n",
+                shop.getBike(i).getName(),
+                shop.getBike(i).getPrice(),
+                shop.getBike(i).getStock()
+            );
+        }
 
 
-        System.out.println(bike.getName() + " is " + bike.getType());
-        System.out.println(bike.soundWarning());
+        System.exit(0);
+
+        // Konkatenering:
+        Shirt shirt = new Shirt("Gant", 99.9999);
+        Shirt shirt2 = new Shirt("Dressman", 30);
+
+        System.out.println(shirt.getBrand() + " kostar " + shirt.getPrice() + " lagersaldo: " + shirt.getStock() + " st");
+        System.out.printf("%s kostar %.2f € lagersaldo: %d st\n",
+                shirt.getBrand(),
+                shirt.getPrice(),
+                shirt.getStock());
+
+        // String.format() returnerar en string
+        String shirtInfo = String.format("%s kostar %.2f € lagersaldo: %d st",
+                shirt2.getBrand(),
+                shirt2.getPrice(),
+                shirt2.getStock());
+        System.out.println(shirtInfo);
+
+        // default-konstruktor
+        Foo foo = new Foo();
+
     }
 }
 
