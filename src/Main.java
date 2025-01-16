@@ -13,6 +13,13 @@ public class Main {
         shop.addBike(new Bike("Nishiki", 500));
         shop.addBike(new Bike("Insera", 200));
 
+        shop.getBike(0).addFeature("suspension", "hardtail");
+        shop.getBike(0).addFeature("wheelsize", "29 inch");
+        /* i JS ungefär:
+            const features = { suspension: "hardtail", wheelsize: "29 inch" }
+        */
+        //System.out.println(shop.getBike(1).getFeature("suspension"));
+
         System.out.println("Välkommen till BikeShop! Våra cyklar:");
         for (int i = 0; i < shop.getBikeCount(); i++) {
             System.out.printf("%s %.2f € lagersaldo: %s\n",
@@ -20,6 +27,8 @@ public class Main {
                 shop.getBike(i).getPrice(),
                 shop.getBike(i).getStock()
             );
+
+            System.out.println(shop.getBike(i).getFeatures());
         }
 
 

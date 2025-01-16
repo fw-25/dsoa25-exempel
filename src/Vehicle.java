@@ -31,6 +31,10 @@ abstract class Vehicle {
         this.price = price;
     }
 
+    public double getGrossPrice() {
+        return this.price;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
