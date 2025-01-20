@@ -9,9 +9,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CCTestingOverload calculator = new CCTestingOverload();
-        System.out.println(calculator.multiply(7, 6));
-
         Scanner scanner = new Scanner(System.in);
 
         BikeShop shop = new BikeShop();
@@ -57,28 +54,8 @@ public class Main {
 
         }
 
-
         System.exit(0);
 
-        // Konkatenering:
-        Shirt shirt = new Shirt("Gant", 99.9999);
-        Shirt shirt2 = new Shirt("Dressman", 30);
-
-        System.out.println(shirt.getBrand() + " kostar " + shirt.getPrice() + " lagersaldo: " + shirt.getStock() + " st");
-        System.out.printf("%s kostar %.2f € lagersaldo: %d st\n",
-                shirt.getBrand(),
-                shirt.getPrice(),
-                shirt.getStock());
-
-        // String.format() returnerar en string
-        String shirtInfo = String.format("%s kostar %.2f € lagersaldo: %d st",
-                shirt2.getBrand(),
-                shirt2.getPrice(),
-                shirt2.getStock());
-        System.out.println(shirtInfo);
-
-        // default-konstruktor
-        Foo foo = new Foo();
 
     }
 }
