@@ -4,6 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BikeFactoryTest {
 
+    /**
+     *  Inte ett så bra test eftersom resultatet från metoden som testas
+     *  använder random. Testet kan alltså ibland gå igenom, ibland inte!
+     */
+
     @Test
     void testCreateExpensiveBike() {
         double price = BikeFactory.createExpensiveBike("a").getGrossPrice();
