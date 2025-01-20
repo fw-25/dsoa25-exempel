@@ -11,6 +11,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Ny feature!!");
+
         BikeShop shop = new BikeShop();
         shop.addBike(new Bike("Scott", 600));
         shop.addBike(new Bike("Nishiki", 500));
