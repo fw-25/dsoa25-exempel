@@ -11,12 +11,14 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ny feature!!");
+        /*
+        new CCRandomRundown();
+         */
 
         BikeShop shop = new BikeShop();
-        shop.addBike(new Bike("Scott", 600));
+        shop.addBike(BikeFactory.createExpensiveBike("Scott"));
         shop.addBike(new Bike("Nishiki", 500));
-        shop.addBike(new Bike("Insera", 200));
+        shop.addBike(BikeFactory.createCheapBike("Insera"));
 
         System.out.println("Välkommen till BikeShop! Våra cyklar:");
         for (int i = 0; i < shop.getBikeCount(); i++) {
@@ -26,33 +28,39 @@ public class Main {
                     shop.getBike(i).getPrice(),
                     shop.getBike(i).getStock()
             );
+
         }
 
-        System.out.print("Vilken cykel vill du köpa? (q för quit) ");
+
         String userInput;
 
         while (true) {
+
+            System.out.print("Vilken cykel vill du köpa? (q för quit) ");
 
             userInput = scanner.nextLine();
 
             if (userInput.equalsIgnoreCase("q")) {
                 System.out.println("Tack, välkommen åter!");
-                System.exit(0);
+                break;
             }
 
-            try {
-                int bikeIndex = Integer.parseInt(userInput);
-                System.out.printf("Grattis, du äger nu en %s\n",
-                        shop.getBike(bikeIndex).getName()
-                );
-                break;
-            } catch (NumberFormatException e) {
+            if (!Utils.isInteger(userInput)) {
                 System.out.println("Du måste ge ett heltal!");
-            } catch (IndexOutOfBoundsException e) {
-                System.out.println("Det finns ingen sådan cykel!");
-            } catch (Exception e) {
-                System.out.println("Error: " + e.getMessage());
+                continue;
             }
+
+            int bikeIndex = Integer.parseInt(userInput);
+            if (bikeIndex >= shop.getBikeCount()) {
+                System.out.println("Det finns ingen sådan cykel");
+                continue;
+            }
+
+            System.out.printf("Grattis, du köpte nu en %s för %.2f\n",
+                    shop.getBike(bikeIndex).getName(),
+                    shop.getBike(bikeIndex).getPrice()
+            );
+            break;
 
         }
 

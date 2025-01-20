@@ -18,6 +18,7 @@ public class Bike extends Vehicle implements Shoppable {
 
     }
 
+
     public void addFeature(String key, String value) {
         features.put(key, value);
     }
