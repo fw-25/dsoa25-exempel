@@ -1,4 +1,6 @@
-abstract class Vehicle {
+import java.io.Serializable;
+
+abstract class Vehicle implements Serializable {
 
     private String name;
     private String type;

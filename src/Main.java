@@ -15,7 +15,13 @@ public class Main {
         //System.out.println(FileUtils.readTextFile("hello.txt"));
         // System.exit(0);
 
-        Customer customer = new Customer(500);
+        Customer customer;
+        Object loadedObject = FileUtils.loadObject("customer.save");
+        if (loadedObject != null) {
+            customer = (Customer) loadedObject;
+        } else {
+            customer = new Customer(1500);
+        }
 
 
         BikeShop shop = new BikeShop();

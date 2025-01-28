@@ -2,6 +2,25 @@ import java.io.*;
 
 public class FileUtils {
 
+    public static Object loadObject(String fileName) {
+
+        Object returnObj = null;
+
+        try (ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(fileName))) {
+
+            returnObj = objIn.readObject();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return returnObj;
+
+    }
 
     public static void saveObject(Object objectToSave, String fileName) {
         try (FileOutputStream fileOut = new FileOutputStream(fileName);
