@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Random;
 
-public class Bike extends Vehicle implements Shoppable {
+public class Bike extends Vehicle implements Shoppable, Serializable {
 
     private int stock = 0;
     HashMap<String,String> features = new HashMap<>();
