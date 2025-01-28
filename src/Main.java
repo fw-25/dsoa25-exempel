@@ -26,7 +26,8 @@ public class Main {
 
         BikeShop shop = new BikeShop();
         shop.addBike(BikeFactory.createExpensiveBike("Scott"));
-        shop.addBike(new Bike("Nishiki", 500));
+        shop.addBike(new Bike("Nishiki", 500, DiscountCategory.RETURNED));
+        shop.addBike(new Bike("Jopo", 300, DiscountCategory.DEMO));
         shop.addBike(BikeFactory.createCheapBike("Insera"));
 
         String userInput;
@@ -45,11 +46,13 @@ public class Main {
             }
 
             for (int i = 0; i < shop.getBikeCount(); i++) {
-                System.out.printf("%d - %s %.2f € lagersaldo: %s\n",
+                System.out.printf("%d - %s %.2f € (%.2f) lagersaldo: %s %s\n",
                         i,
                         shop.getBike(i).getName(),
                         shop.getBike(i).getPrice(),
-                        shop.getBike(i).getStock()
+                        shop.getBike(i).getGrossPrice(),
+                        shop.getBike(i).getStock(),
+                        shop.getBike(i).getDiscountCat()
                 );
             }
 
