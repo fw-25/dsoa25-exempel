@@ -30,10 +30,12 @@ public class Utils {
     }
 
 
-    public String[] arrayReverse(String[] inputArr) {
+    public static String[] arrayReverse(String[] inputArr) {
         String[] reversed = new String[inputArr.length];
 
-        // Logic here...
+        for (int i = 0; i < inputArr.length; i++) {
+            reversed[i] = inputArr[inputArr.length-1-i];
+        }
 
         return reversed;
     }
