@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class BigO {
 
     //int[] data = { 1, 3, 5, 7, 9, 8, 6, 4, 2 };
-    int[] data = new int[100000];
+    int[] data = new int[10000];
     long ops;
 
     public BigO() {
@@ -54,8 +54,6 @@ public class BigO {
             }
         }
         System.out.printf("O(n log n): %d operationer\n", ops);
-
-
 
 
     }
