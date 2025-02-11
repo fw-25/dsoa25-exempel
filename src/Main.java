@@ -22,7 +22,6 @@ public class Main {
         System.out.println("Total collisions: " + hashy.totCollisions);
 
 
-
         int ops = 0;
         for (int i = 0; i < topNames.length; i++) {
             ops++;
@@ -31,11 +30,10 @@ public class Main {
                 break;
             }
         }
-        System.out.println("Sequential search operations O(n): " + ops);
+        System.out.println("Sequential search O(n) operations: " + ops);
 
-
-
-
+        Person found = hashy.search(search);
+        System.out.println(search + " is ranked " + found.getRank());
 
         System.exit(0);
 

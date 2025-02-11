@@ -15,5 +15,7 @@ public class Person {
         return name;
     }
 
-
+    public int getRank() {
+        return rank;
+    }
 }
