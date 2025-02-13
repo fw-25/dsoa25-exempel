@@ -6,7 +6,7 @@ public class StringArray {
 
     public StringArray(String[] values) {
         System.out.println("new stringArray");
-        this.values = values;
+        this.values = values.clone();
     }
 
     public void add(String value) {
@@ -37,6 +37,10 @@ public class StringArray {
             values[i] = values[values.length-i-1];
             values[values.length-i-1] = temp;
         }
+    }
+
+    public String[] getValues() {
+        return values;
     }
 
     public String toString() {
