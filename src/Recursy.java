@@ -39,6 +39,19 @@ public class Recursy {
         return ret;
     }
 
+    /**
+     * CC Accursed Recursion
+     */
+    static void countdown(int i) {
+        if (i < 0) return;
+        System.out.print(i + " ");
+        countdown(i-1);
+    }
+    static int pow(int n, int exp) {
+        if (exp == 0) return 1;
+        //if (exp <= 1) return n;
+        return n * pow(n, exp-1);
+    }
 
 
 }
